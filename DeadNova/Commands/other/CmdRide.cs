@@ -29,7 +29,7 @@ namespace DeadNova.Commands.Misc {
             p.onTrain = !p.onTrain;
             if (!p.onTrain) return;
             
-            p.trainInvulnerable = true;
+            p.trainInvincible = true;
             p.Message("Stand near a train to mount it");
             
             SchedulerTask task = new SchedulerTask(RideCallback, p, TimeSpan.Zero, true);
@@ -42,7 +42,7 @@ namespace DeadNova.Commands.Misc {
                 p.trainGrab = false;
                 p.Message("Dismounted");
                 
-                Server.MainScheduler.QueueOnce(TrainInvincibleCallback, p, 
+                Server.MainScheduler.QueueOnce(TrainInvlnerableCallback, p, 
                                                TimeSpan.FromSeconds(1));
                 task.Repeating = false;
                 return;
@@ -74,9 +74,9 @@ namespace DeadNova.Commands.Misc {
             p.trainGrab = false;
         }
         
-        static void TrainInvincibleCallback(SchedulerTask task) {
+        static void TrainInvlnerableCallback(SchedulerTask task) {
             Player p = (Player)task.State;
-            p.trainInvulnerable = false;
+            p.trainInvincible = false;
         }
 
         public override void Help(Player p) {

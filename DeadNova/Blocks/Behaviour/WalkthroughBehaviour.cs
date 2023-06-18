@@ -37,7 +37,7 @@ namespace DeadNova.Blocks {
         }
 
         public static bool Train(Player p, BlockID block, ushort x, ushort y, ushort z) {
-            if (!p.trainInvulnerable && p.level.Config.KillerBlocks) p.HandleDeath(Block.Train);
+            if (!p.trainInvincible && p.level.Config.KillerBlocks) p.HandleDeath(Block.Train);
             return true;
         }
 

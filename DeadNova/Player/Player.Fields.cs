@@ -77,7 +77,7 @@ namespace DeadNova {
         public bool muted;
         public bool jailed;
         public bool agreed = true;
-        public bool invulnerable;
+        public bool invincible;
         public string prefix = "";
         public string title = "";
         public string titlecolor = "";
@@ -115,7 +115,7 @@ namespace DeadNova {
         string partialMessage = "";
 
         public bool trainGrab;
-        public bool onTrain, trainInvulnerable;
+        public bool onTrain, trainInvincible;
         int mbRecursion;
 
         public bool frozen;

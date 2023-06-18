@@ -49,7 +49,7 @@ namespace DeadNova.Blocks.Physics {
                 
                 // Some blocks will cause death of players
                 if (!p.level.Props[block].KillerBlock) continue;
-                if (block == Block.Train && p.trainInvulnerable) continue;
+                if (block == Block.Train && p.trainInvincible) continue;
                 if (p.level.Config.KillerBlocks) p.HandleDeath(block);
             }
             

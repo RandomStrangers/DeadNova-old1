@@ -341,13 +341,13 @@ namespace DeadNova
         
         public bool HandleDeath(BlockID block, string customMsg = "", bool explode = false, bool immediate = false) {
             if (!immediate && lastDeath.AddSeconds(2) > DateTime.UtcNow) return false;
-            if (invulnerable) return false;
+            if (invincible) return false;
             
             cancelDeath = false;
             OnPlayerDeathEvent.Call(this, block);
             if (cancelDeath) { cancelDeath = false; return false; }
 
-            onTrain = false; trainInvulnerable = false; trainGrab = false;
+            onTrain = false; trainInvincible = false; trainGrab = false;
             ushort x = (ushort)Pos.BlockX, y = (ushort)Pos.BlockY, z = (ushort)Pos.BlockZ;
             
             string deathMsg = level.Props[block].DeathMessage;
