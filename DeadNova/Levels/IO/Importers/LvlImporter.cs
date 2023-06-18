@@ -28,7 +28,7 @@ namespace DeadNova.Levels.IO
     public unsafe sealed class LvlImporter : IMapImporter 
     {
         public override string Extension { get { return ".lvl"; } }
-        public override string Description { get { return "MCDzienny/MCForge/SuperNova map"; } }
+        public override string Description { get { return "MCDzienny/MCForge/DeadNova map"; } }
         const int HEADER_SIZE = 18;
         
         public override Vec3U16 ReadDimensions(Stream src) {

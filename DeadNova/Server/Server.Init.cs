@@ -73,7 +73,7 @@ namespace DeadNova {
             agreed = PlayerList.Load("ranks/agreed.txt");
             invalidIds = PlayerList.Load("extra/invalidids.txt");
 #if DEV_BUILD_NOVA
-            Player.Nova.DatabaseID = NameConverter.InvalidNameID("(&5N&do&5v&da)");
+            Player.Nova.DatabaseID = NameConverter.InvalidNameID("(&0Dead&5Nova)");
 #else
             Player.Console.DatabaseID = NameConverter.InvalidNameID("(console)");
 #endif

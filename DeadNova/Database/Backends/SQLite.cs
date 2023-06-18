@@ -134,6 +134,6 @@ namespace DeadNova.SQL {
     
     public sealed class MCGSQLiteConnection : SQLiteConnection {
         public override bool ConnectionPooling { get { return Server.Config.DatabasePooling; } }
-        public override string DBPath { get { return "SuperNova.db"; } }
+        public override string DBPath { get { return "DeadNova.db"; } }
     }
 }

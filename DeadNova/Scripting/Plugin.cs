@@ -23,6 +23,8 @@ using DeadNova.Modules.Relay.Discord;
 using DeadNova.Modules.Relay.IRC;
 using DeadNova.Modules.Relay1.Discord1;
 using DeadNova.Modules.Relay1.IRC1;
+using DeadNova.Modules.Relay2.Discord2;
+using DeadNova.Modules.Relay2.IRC2;
 using DeadNova.Modules.Security;
 using DeadNova.Scripting;
 
@@ -47,8 +49,8 @@ namespace DeadNova
         
         /// <summary> Name of the plugin. </summary>
         public abstract string name { get; }
-        /// <summary> Oldest version of SuperNova this plugin is compatible with. </summary>
-        public abstract string SuperNova_Version { get; }
+        /// <summary> Oldest version of DeadNova this plugin is compatible with. </summary>
+        public abstract string DeadNova_Version { get; }
         /// <summary> Version of this plugin. </summary>
         public virtual int build { get { return 0; } }
         /// <summary> Message to display once this plugin is loaded. </summary>
@@ -64,7 +66,7 @@ namespace DeadNova
         
         public static bool Load(Plugin p, bool auto) {
             try {
-                string ver = p.SuperNova_Version;
+                string ver = p.DeadNova_Version;
                 if (!String.IsNullOrEmpty(ver) && new Version(ver) > new Version(Server.Version)) {
                     Logger.Log(LogType.Warning, "Plugin ({0}) requires a more recent version of {1}!", p.name, Server.SoftwareName);
                     return false;
@@ -114,6 +116,8 @@ namespace DeadNova
             LoadCorePlugin(new IRCPlugin());
             LoadCorePlugin(new DiscordPlugin1());
             LoadCorePlugin(new IRCPlugin1());
+            LoadCorePlugin(new DiscordPlugin2());
+            LoadCorePlugin(new IRCPlugin2());
             LoadCorePlugin(new IPThrottler());
             IScripting.AutoloadPlugins();
         }

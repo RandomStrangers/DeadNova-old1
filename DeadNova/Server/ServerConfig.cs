@@ -52,8 +52,8 @@ namespace DeadNova {
         /// <summary> true if maps sees server-wide chat, false if maps have level-only/isolated chat </summary>
         [ConfigBool("world-chat", "Level", true)]
         public bool ServerWideChat = true;
-        [ConfigString("main-name", "Level", "main", false, "()._+,-")]
-        public string MainLevel = "main";
+        [ConfigString("main-name", "Level", "deadnova", false, "()._+,-")]
+        public string MainLevel = "deadnova";
         [ConfigString("default-texture-url", "Level", "", true)]
         public string DefaultTerrain = "";
         [ConfigString("default-texture-pack-url", "Level", "", true)]

@@ -341,7 +341,7 @@ namespace DeadNova.Scripting
                 AddReferences(path, args);
                 srcPaths[i] = path;
             }
-            args.ReferencedAssemblies.Add("MCGalaxy_.dll");
+            args.ReferencedAssemblies.Add("DeadNova_.dll");
             
             PrepareArgs(args);
             InitCompiler();

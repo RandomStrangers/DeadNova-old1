@@ -24,8 +24,8 @@ namespace DeadNova {
     public sealed partial class Server {
         public static bool cancelcommand;
 #if DEV_BUILD_NOVA
-        public delegate void OnConsoleCommand(string cmd, string message);
-        public static event OnConsoleCommand ConsoleCommand;
+        public delegate void OnNovaCommand(string cmd, string message);
+        public static event OnNovaCommand NovaCommand;
 #else
         public delegate void OnConsoleCommand(string cmd, string message);
         public static event OnConsoleCommand ConsoleCommand;

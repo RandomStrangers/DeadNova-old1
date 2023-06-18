@@ -40,14 +40,21 @@ namespace DeadNova {
     public sealed partial class Server {
         
         public Server() { Server.s = this; }
-        
+
         //True = cancel event
         //Fale = dont cacnel event
+#if DEV_BUILD_NOVA
+        public static bool Check(string cmd, string message) {
+            if (NovaCommand != null) NovaCommand(cmd, message);
+            return cancelcommand;
+        }
+#else
         public static bool Check(string cmd, string message) {
             if (ConsoleCommand != null) ConsoleCommand(cmd, message);
             return cancelcommand;
         }
-        
+#endif
+
         [Obsolete("Use Logger.Log(LogType, String)")]
         public void Log(string message) { Logger.Log(LogType.SystemActivity, message); }
         
@@ -79,10 +86,10 @@ namespace DeadNova {
             levelConfig  = ConfigElement.GetAll(typeof(LevelConfig));
             zoneConfig   = ConfigElement.GetAll(typeof(ZoneConfig));
             
-            #pragma warning disable 0618
+#pragma warning disable 0618
             Player.players = PlayerInfo.Online.list;
             Server.levels = LevelInfo.Loaded.list;
-            #pragma warning restore 0618
+#pragma warning restore 0618
             
             StartTime = DateTime.UtcNow;
             shuttingDown = false;
@@ -303,7 +310,7 @@ namespace DeadNova {
             //     at System.TermInfoDriver.ReadLine () [0x00000]
             //     at System.ConsoleDriver.ReadLine () [0x00000]
             //     at System.Console.ReadLine () [0x00013]
-            //     at SuperNova.Cli.CLI.ConsoleLoop () [0x00002]
+            //     at DeadNova.Cli.CLI.ConsoleLoop () [0x00002]
             // (this errors multiple times a second and can quickly fill up tons of disk space)
             // And also causes console to be spammed with '1R3;1R3;1R3;' or '363;1R;363;1R;'
             //

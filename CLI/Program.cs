@@ -39,7 +39,7 @@ namespace DeadNova.Cli {
                 return;
             }
             
-            // separate method, in case SuperNova_.dll is missing
+            // separate method, in case DeadNova_.dll is missing
             StartCLI();
         }
         
@@ -171,7 +171,7 @@ namespace DeadNova.Cli {
         }
 
         static void LogNewerVersionDetected(object sender, EventArgs e) {
-            Write("&cSuperNova update available! Update by replacing with the files from " + Updater.UploadsURL);
+            Write("&4DeadNova update available! Update by replacing with the files from " + Updater.UploadsURL);
         }
         
         static void ConsoleLoop() {

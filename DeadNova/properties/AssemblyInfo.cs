@@ -17,8 +17,8 @@
 */
 using System.Reflection;
 
-[assembly: AssemblyTitle("SuperNova")]
+[assembly: AssemblyTitle("DeadNova")]
 [assembly: AssemblyDescription("ClassiCube Server Software")]
-[assembly: AssemblyProduct("SuperNova")]
+[assembly: AssemblyProduct("DeadNova")]
 [assembly: AssemblyCopyright("Copyright © 2015-2022")]
 [assembly: AssemblyVersion(DeadNova.Server.InternalVersion)]

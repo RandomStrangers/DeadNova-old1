@@ -46,9 +46,9 @@ namespace DeadNova.Scripting
         public override string CommandSkeleton {
             get {
                 return @"//\tAuto-generated command skeleton class.
-//\tUse this as a basis for custom SuperNova commands.
+//\tUse this as a basis for custom DeadNova commands.
 //\tNaming should be kept consistent. (e.g. /update command should have a class name of 'CmdUpdate' and a filename of 'CmdUpdate.cs')
-// As a note, SuperNova is designed for .NET 4.0
+// As a note, DeadNova is designed for .NET 4.8
 
 // To reference other assemblies, put a ""//reference [assembly filename]"" at the top of the file
 //   e.g. to reference the System.Data assembly, put ""//reference System.Data.dll""
@@ -56,7 +56,7 @@ namespace DeadNova.Scripting
 // Add any other using statements you need after this
 using System;
 
-namespace SuperNova 
+namespace DeadNova 
 {{
 \tpublic class Cmd{0} : Command
 \t{{
@@ -99,12 +99,12 @@ namespace SuperNova
             get {
                 return @"//This is an example plugin source!
 using System;
-namespace SuperNova
+namespace DeadNova
 {{
 \tpublic class {0} : Plugin
 \t{{
 \t\tpublic override string name {{ get {{ return ""{0}""; }} }}
-\t\tpublic override string SuperNova_Version {{ get {{ return ""{2}""; }} }}
+\t\tpublic override string DeadNova_Version {{ get {{ return ""{2}""; }} }}
 \t\tpublic override string welcome {{ get {{ return ""Loaded Message!""; }} }}
 \t\tpublic override string creator {{ get {{ return ""{1}""; }} }}
 
@@ -148,9 +148,9 @@ namespace SuperNova
         public override string CommandSkeleton {
             get {
                 return @"'\tAuto-generated command skeleton class.
-'\tUse this as a basis for custom SuperNova commands.
+'\tUse this as a basis for custom DeadNova commands.
 '\tNaming should be kept consistent. (e.g. /update command should have a class name of 'CmdUpdate' and a filename of 'CmdUpdate.vb')
-' As a note, SuperNova is designed for .NET 4.0.
+' As a note, DeadNova is designed for .NET 4.8.
 
 ' To reference other assemblies, put a ""'reference [assembly filename]"" at the top of the file
 '   e.g. to reference the System.Data assembly, put ""'reference System.Data.dll""
@@ -158,7 +158,7 @@ namespace SuperNova
 ' Add any other Imports statements you need after this
 Imports System
 
-Namespace SuperNova
+Namespace DeadNova
 \tPublic Class Cmd{0}
 \t\tInherits Command
 
@@ -220,7 +220,7 @@ End Namespace";
                 return @"' This is an example plugin source!
 Imports System
 
-Namespace SuperNova
+Namespace DeadNova
 \tPublic Class {0}
 \t\tInherits Plugin
 
@@ -229,7 +229,7 @@ Namespace SuperNova
 \t\t\t\tReturn ""{0}""
 \t\t\tEnd Get
 \t\t End Property
-\t\tPublic Overrides ReadOnly Property SuperNova_Version() As String
+\t\tPublic Overrides ReadOnly Property DeadNova_Version() As String
 \t\t\tGet
 \t\t\t\tReturn ""{2}""
 \t\t\tEnd Get
