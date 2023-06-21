@@ -1,5 +1,5 @@
 /*
-Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/SuperNova)
+Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/DeadNova)
 Dual-licensed under the Educational Community License, Version 2.0 and
 the GNU General Public License, Version 3 (the "Licenses"); you may
 not use this file except in compliance with the Licenses. You may
@@ -15,11 +15,11 @@ permissions and limitations under the Licenses.
 /*
 using System;
 using System.Collections.Generic;
-using SuperNova.Blocks;
-using SuperNova.Commands.CPE;
+using DeadNova.Blocks;
+using DeadNova.Commands.CPE;
 using BlockID = System.UInt16;
 
-namespace SuperNova.Commands.Info {
+namespace DeadNova.Commands.Info {
     public sealed class CmdHelp : Command2 {
         public override string name { get { return "Help"; } }
         public override string type { get { return CommandTypes.Information; } }

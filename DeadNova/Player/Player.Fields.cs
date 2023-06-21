@@ -1,5 +1,5 @@
 ﻿/*
-Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/SuperNova)
+Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/DeadNova)
 Dual-licensed under the Educational Community License, Version 2.0 and
 the GNU General Public License, Version 3 (the "Licenses"); you may
 not use this file except in compliance with the Licenses. You may
@@ -77,7 +77,7 @@ namespace DeadNova {
         public bool muted;
         public bool jailed;
         public bool agreed = true;
-        public bool invincible;
+        public bool invulnerable;
         public string prefix = "";
         public string title = "";
         public string titlecolor = "";
@@ -115,7 +115,7 @@ namespace DeadNova {
         string partialMessage = "";
 
         public bool trainGrab;
-        public bool onTrain, trainInvincible;
+        public bool onTrain, trainInvulnerable;
         int mbRecursion;
 
         public bool frozen;

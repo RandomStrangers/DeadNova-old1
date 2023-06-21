@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2015 SuperNova
+    Copyright 2015 DeadNova
     
     Dual-licensed under the Educational Community License, Version 2.0 and
     the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -42,7 +42,7 @@ namespace DeadNova.UI
         {
             if (lastCMD.Length == 0)
             {
-                Logger.Log(LogType.CommandUsage, "(DeadNova): Cannot repeat command - no commands used yet.");
+                Logger.Log(LogType.CommandUsage, "(Nova): Cannot repeat command - no commands used yet.");
                 return;
             }
             Logger.Log(LogType.CommandUsage, "Repeating &T/" + lastCMD);
@@ -54,7 +54,7 @@ namespace DeadNova.UI
             if (text != null) text = text.Trim();
             if (String.IsNullOrEmpty(text))
             {
-                Logger.Log(LogType.CommandUsage, "(DeadNova): Whitespace commands are not allowed.");
+                Logger.Log(LogType.CommandUsage, "(Nova): Whitespace commands are not allowed.");
                 return;
             }
             if (text[0] == '/' && text.Length > 1)
@@ -70,11 +70,11 @@ namespace DeadNova.UI
 
             if (cmd == null)
             {
-                Logger.Log(LogType.CommandUsage, "(DeadNova): Unknown command \"{0}\"", name); return;
+                Logger.Log(LogType.CommandUsage, "(Nova): Unknown command \"{0}\"", name); return;
             }
             if (!cmd.SuperUseable)
             {
-                Logger.Log(LogType.CommandUsage, "(DeadNova): /{0} can only be used in-game.", cmd.name); return;
+                Logger.Log(LogType.CommandUsage, "(Nova): /{0} can only be used in-game.", cmd.name); return;
             }
 
             Thread thread = new Thread(
@@ -84,20 +84,20 @@ namespace DeadNova.UI
                         cmd.Use(Player.Nova, args);
                         if (args.Length == 0)
                         {
-                            Logger.Log(LogType.CommandUsage, "(DeadNova) used /" + cmd.name);
+                            Logger.Log(LogType.CommandUsage, "(Nova) used /" + cmd.name);
                         }
                         else
                         {
-                            Logger.Log(LogType.CommandUsage, "(DeadNova) used /" + cmd.name + " " + args);
+                            Logger.Log(LogType.CommandUsage, "(Nova) used /" + cmd.name + " " + args);
                         }
                     }
                     catch (Exception ex)
                     {
                         Logger.LogError(ex);
-                        Logger.Log(LogType.CommandUsage, "(DeadNova): FAILED COMMAND");
+                        Logger.Log(LogType.CommandUsage, "(Nova): FAILED COMMAND");
                     }
                 });
-            thread.Name = "DeadNovaCMD_" + name;
+            thread.Name = "NovaCMD_" + name;
             thread.IsBackground = true;
             thread.Start();
         }

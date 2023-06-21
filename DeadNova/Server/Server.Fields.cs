@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/SuperNova)
+    Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/DeadNova)
     
     Dual-licensed under the    Educational Community License, Version 2.0 and
     the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -34,6 +34,7 @@ namespace DeadNova {
         public delegate void VoidHandler();
         
         public static event MessageEventHandler OnURLChange;
+        public static event MessageEventHandler OnURL2Change;
         public static event VoidHandler OnSettingsUpdate;
         public static ServerConfig Config = new ServerConfig();
         public static DateTime StartTime;
@@ -41,9 +42,9 @@ namespace DeadNova {
         public static PlayerExtList AutoloadMaps;
         public static PlayerMetaList RankInfo = new PlayerMetaList("text/rankinfo.txt");
         public static PlayerMetaList Notes = new PlayerMetaList("text/notes.txt");
-        
+
         /// <summary> *** DO NOT USE THIS! *** Use VersionString, as this field is a constant and is inlined if used. </summary>
-        public const string InternalVersion = "5.8.4.1";
+        public const string InternalVersion = "5.8.4.2";
         public static string Version { get { return InternalVersion; } }
 #if DEV_BUILD_NOVA
         public static string SoftwareName = "DeadNova Core";

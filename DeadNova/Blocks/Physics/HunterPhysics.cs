@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/SuperNova)
+    Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/DeadNova)
         
     Dual-licensed under the Educational Community License, Version 2.0 and
     the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -110,7 +110,7 @@ namespace DeadNova.Blocks.Physics {
             Player[] players = PlayerInfo.Online.Items;
             
             foreach (Player p in players) {
-                if (p.level != lvl || p.invincible) continue;
+                if (p.level != lvl || p.invulnerable) continue;
                 Position pos = p.Pos;
                 int curDist = Math.Abs(pos.BlockX - x) + Math.Abs(pos.BlockY - y) + Math.Abs(pos.BlockZ - z);
                 if (curDist < closestDist) {

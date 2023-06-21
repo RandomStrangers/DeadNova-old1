@@ -1,5 +1,5 @@
 /*
-    Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/SuperNova)
+    Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/DeadNova)
     
     Dual-licensed under the    Educational Community License, Version 2.0 and
     the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -29,7 +29,7 @@ namespace DeadNova.Commands.Misc {
             p.onTrain = !p.onTrain;
             if (!p.onTrain) return;
             
-            p.trainInvincible = true;
+            p.trainInvulnerable = true;
             p.Message("Stand near a train to mount it");
             
             SchedulerTask task = new SchedulerTask(RideCallback, p, TimeSpan.Zero, true);
@@ -42,7 +42,7 @@ namespace DeadNova.Commands.Misc {
                 p.trainGrab = false;
                 p.Message("Dismounted");
                 
-                Server.MainScheduler.QueueOnce(TrainInvlnerableCallback, p, 
+                Server.MainScheduler.QueueOnce(TrainInvincibleCallback, p, 
                                                TimeSpan.FromSeconds(1));
                 task.Repeating = false;
                 return;
@@ -74,9 +74,9 @@ namespace DeadNova.Commands.Misc {
             p.trainGrab = false;
         }
         
-        static void TrainInvlnerableCallback(SchedulerTask task) {
+        static void TrainInvincibleCallback(SchedulerTask task) {
             Player p = (Player)task.State;
-            p.trainInvincible = false;
+            p.trainInvulnerable = false;
         }
 
         public override void Help(Player p) {

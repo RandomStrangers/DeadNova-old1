@@ -1,5 +1,5 @@
 /*
-    Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/SuperNova)
+    Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/DeadNova)
     
     Dual-licensed under the Educational Community License, Version 2.0 and
     the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -30,7 +30,7 @@ using DeadNova.Scripting;
 
 namespace DeadNova 
 {
-    /// <summary> This class provides for more advanced modification to SuperNova </summary>
+    /// <summary> This class provides for more advanced modification to DeadNova </summary>
     public abstract class Plugin 
     {
         /// <summary> Hooks into events and initalises states/resources etc </summary>
@@ -50,7 +50,7 @@ namespace DeadNova
         /// <summary> Name of the plugin. </summary>
         public abstract string name { get; }
         /// <summary> Oldest version of DeadNova this plugin is compatible with. </summary>
-        public abstract string DeadNova_Version { get; }
+        public abstract string SuperNova_Version { get; }
         /// <summary> Version of this plugin. </summary>
         public virtual int build { get { return 0; } }
         /// <summary> Message to display once this plugin is loaded. </summary>
@@ -66,7 +66,7 @@ namespace DeadNova
         
         public static bool Load(Plugin p, bool auto) {
             try {
-                string ver = p.DeadNova_Version;
+                string ver = p.SuperNova_Version;
                 if (!String.IsNullOrEmpty(ver) && new Version(ver) > new Version(Server.Version)) {
                     Logger.Log(LogType.Warning, "Plugin ({0}) requires a more recent version of {1}!", p.name, Server.SoftwareName);
                     return false;

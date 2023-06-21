@@ -19,7 +19,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SuperNova.Commands
+namespace DeadNova.Commands
 {
     public class CmdCtf : Command
     {

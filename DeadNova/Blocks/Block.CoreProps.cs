@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2015 SuperNova
+    Copyright 2015 DeadNova
         
     Dual-licensed under the Educational Community License, Version 2.0 and
     the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -195,7 +195,7 @@ const string default_names =
         
         static void SetDefaultAliases() {
             Dictionary<string, byte> aliases = Aliases;
-            // Add old SuperNova names
+            // Add old DeadNova names
             aliases["purple"] = Indigo; aliases["blueviolet"] = Blue;
             aliases["adminium"] = Bedrock; aliases["bookcase"] = Bookshelf;
             aliases["plant"] = Sapling; aliases["mossy_cobblestone"] = MossyRocks;

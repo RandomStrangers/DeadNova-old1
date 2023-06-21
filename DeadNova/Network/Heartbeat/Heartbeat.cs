@@ -36,6 +36,7 @@ namespace DeadNova.Network
         
         /// <summary> The URL this heartbeat is sent to </summary
         public string URL;
+
         /// <summary> Salt used for verifying player names </summary>
         public string Salt = "";
 

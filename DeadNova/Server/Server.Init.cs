@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/SuperNova)
+    Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/DeadNova)
     
     Dual-licensed under the Educational Community License, Version 2.0 and
     the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -73,7 +73,7 @@ namespace DeadNova {
             agreed = PlayerList.Load("ranks/agreed.txt");
             invalidIds = PlayerList.Load("extra/invalidids.txt");
 #if DEV_BUILD_NOVA
-            Player.Nova.DatabaseID = NameConverter.InvalidNameID("(&0Dead&5Nova)");
+            Player.Nova.DatabaseID = NameConverter.InvalidNameID("(&5N&do&5v&da)");
 #else
             Player.Console.DatabaseID = NameConverter.InvalidNameID("(console)");
 #endif
@@ -125,7 +125,7 @@ namespace DeadNova {
         static void InitHeartbeat(SchedulerTask task) {
             Heartbeat.Start();
         }
-        
+
         static void InitTimers(SchedulerTask task) {
             MainScheduler.QueueRepeat(RandomMessage, null, 
                                       Server.Config.AnnouncementInterval);

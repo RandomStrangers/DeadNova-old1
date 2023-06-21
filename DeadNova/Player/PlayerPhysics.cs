@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/SuperNova)
+    Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/DeadNova)
         
     Dual-licensed under the    Educational Community License, Version 2.0 and
     the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -49,7 +49,7 @@ namespace DeadNova.Blocks.Physics {
                 
                 // Some blocks will cause death of players
                 if (!p.level.Props[block].KillerBlock) continue;
-                if (block == Block.Train && p.trainInvincible) continue;
+                if (block == Block.Train && p.trainInvulnerable) continue;
                 if (p.level.Config.KillerBlocks) p.HandleDeath(block);
             }
             

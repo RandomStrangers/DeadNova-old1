@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/SuperNova)
+    Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/DeadNova)
     
     Dual-licensed under the    Educational Community License, Version 2.0 and
     the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -52,8 +52,8 @@ namespace DeadNova {
         /// <summary> true if maps sees server-wide chat, false if maps have level-only/isolated chat </summary>
         [ConfigBool("world-chat", "Level", true)]
         public bool ServerWideChat = true;
-        [ConfigString("main-name", "Level", "deadnova", false, "()._+,-")]
-        public string MainLevel = "deadnova";
+        [ConfigString("main-name", "Level", "main", false, "()._+,-")]
+        public string MainLevel = "main";
         [ConfigString("default-texture-url", "Level", "", true)]
         public string DefaultTerrain = "";
         [ConfigString("default-texture-pack-url", "Level", "", true)]
@@ -65,7 +65,7 @@ namespace DeadNova {
         public string SslCertPass = "";
         [ConfigString("HeartbeatURL", "Other", "http://www.classicube.net/heartbeat.jsp", false, ":/.,")]
         public string HeartbeatURL = "http://www.classicube.net/heartbeat.jsp";
-        
+
         [ConfigBool("core-secret-commands", "Other", true)]
         public bool CoreSecretCommands = true;
         [ConfigBool("restart-on-error", "Error handling", true)]
@@ -293,8 +293,8 @@ namespace DeadNova {
         [ConfigString("profanity-replacement", "Chat", "*")]
         public string ProfanityReplacement = "*";
 #if DEV_BUILD_NOVA
-        [ConfigString("Core-State", "Chat", "&0Dead&5Nova")]
-        public string CoreState = "&0Dead&5Nova";
+        [ConfigString("Core-State", "Chat", "&5N&do&5v&da")]
+        public string CoreState = "&5N&do&5v&da";
 #else
         [ConfigString("host-state", "Chat", "Alive")]
         public string ConsoleName = "Alive";
@@ -319,8 +319,8 @@ namespace DeadNova {
         
         [ConfigBool("cheapmessage", "Other", true)]
         public bool ShowInvulnerableMessage = true;        
-        [ConfigString("cheap-message-given", "Messages", " is now invincible")]
-        public string InvulnerableMessage = " is now invincible";
+        [ConfigString("cheap-message-given", "Messages", " is now invulnerable")]
+        public string InvulnerableMessage = " is now invulnerable";
         [ConfigString("custom-ban-message", "Messages", "You're banned!")]
         public string DefaultBanMessage = "You're banned!";
         [ConfigString("custom-shutdown-message", "Messages", "Server shutdown. Rejoin in 10 seconds.")]

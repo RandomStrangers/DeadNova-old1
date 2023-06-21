@@ -35,7 +35,7 @@ namespace DeadNova.Events.ServerEvents {
             }
         }
     }
-    
+
     public delegate void OnShuttingDown(bool restarting, string reason);
     /// <summary> Called when the server is shutting down or restarting. </summary>
     public sealed class OnShuttingDownEvent : IEvent<OnShuttingDown> {

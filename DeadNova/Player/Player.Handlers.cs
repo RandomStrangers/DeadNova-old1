@@ -1,5 +1,5 @@
 ﻿/*
-Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/SuperNova)
+Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/DeadNova)
 Dual-licensed under the Educational Community License, Version 2.0 and
 the GNU General Public License, Version 3 (the "Licenses"); you may
 not use this file except in compliance with the Licenses. You may
@@ -341,13 +341,13 @@ namespace DeadNova
         
         public bool HandleDeath(BlockID block, string customMsg = "", bool explode = false, bool immediate = false) {
             if (!immediate && lastDeath.AddSeconds(2) > DateTime.UtcNow) return false;
-            if (invincible) return false;
+            if (invulnerable) return false;
             
             cancelDeath = false;
             OnPlayerDeathEvent.Call(this, block);
             if (cancelDeath) { cancelDeath = false; return false; }
 
-            onTrain = false; trainInvincible = false; trainGrab = false;
+            onTrain = false; trainInvulnerable = false; trainGrab = false;
             ushort x = (ushort)Pos.BlockX, y = (ushort)Pos.BlockY, z = (ushort)Pos.BlockZ;
             
             string deathMsg = level.Props[block].DeathMessage;
@@ -565,7 +565,7 @@ namespace DeadNova
                 Authenticator.Current.RequiresVerification(this, "use /" + cmd);
                 return false;
             }
-            
+
             TimeSpan delta = cmdUnblocked - DateTime.UtcNow;
             if (delta.TotalSeconds > 0) {
                 int secs = (int)Math.Ceiling(delta.TotalSeconds);

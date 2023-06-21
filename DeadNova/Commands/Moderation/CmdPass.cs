@@ -20,6 +20,7 @@
 using System;
 using DeadNova.Authentication;
 
+
 namespace DeadNova.Commands.Moderation {
     public sealed class CmdPass : Command2 {
         public override string name { get { return "Pass"; } }
@@ -76,7 +77,7 @@ namespace DeadNova.Commands.Moderation {
                 p.Message("Forgot your password? Contact &W{0} &Sto &Wreset it.", Server.Config.OwnerName);
                 return;
             }
-            
+
             if (password.IndexOf(' ') >= 0) { p.Message("&WPassword must be one word."); return; }
             Authenticator.Current.StorePassword(p.name, password);
             p.Message("Your password was &aset to: &c" + password);
@@ -137,11 +138,8 @@ namespace DeadNova.Commands.Moderation {
         
         public override void Help(Player p) {
             p.Message("&T/Pass reset [player] &H- Resets the password for that player");
-#if DEV_BUILD_NOVA
             p.Message("&H Note: Can only be used by Nova and the server owner.");
-#else
             p.Message("&H Note: Can only be used by console and the server owner.");
-#endif
             p.Message("&T/Pass set [password] &H- Sets your password to [password]");
             p.Message("&H Note: &WDo NOT set this as your ClassiCube or BetaCraft password!");
             p.Message("&T/Pass [password]");

@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/SuperNova)
+    Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/DeadNova)
     
     Dual-licensed under the Educational Community License, Version 2.0 and
     the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -37,7 +37,7 @@ namespace DeadNova.Blocks {
         }
 
         public static bool Train(Player p, BlockID block, ushort x, ushort y, ushort z) {
-            if (!p.trainInvincible && p.level.Config.KillerBlocks) p.HandleDeath(Block.Train);
+            if (!p.trainInvulnerable && p.level.Config.KillerBlocks) p.HandleDeath(Block.Train);
             return true;
         }
 

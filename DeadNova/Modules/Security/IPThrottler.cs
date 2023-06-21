@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2015 SuperNova
+    Copyright 2015 DeadNova
         
     Dual-licensed under the Educational Community License, Version 2.0 and
     the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -30,7 +30,7 @@ namespace DeadNova.Modules.Security
     public sealed class IPThrottler : Plugin 
     {
         public override string creator { get { return Server.SoftwareName + " team"; } }
-        public override string DeadNova_Version { get { return Server.Version; } }
+        public override string SuperNova_Version { get { return Server.Version; } }
         public override string name { get { return "IPThrottler"; } }
         
         SchedulerTask clearTask;        

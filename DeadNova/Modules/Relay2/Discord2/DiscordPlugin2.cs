@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2015 SuperNova
+    Copyright 2015 DeadNova
         
     Dual-licensed under the Educational Community License, Version 2.0 and
     the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -87,7 +87,7 @@ namespace DeadNova.Modules.Relay2.Discord2
     public sealed class DiscordPlugin2 : Plugin 
     {
         public override string creator { get { return Server.SoftwareName + " team"; } }
-        public override string DeadNova_Version { get { return Server.Version; } }
+        public override string SuperNova_Version { get { return Server.Version; } }
         public override string name { get { return "DiscordRelay2"; } }
         
         public static Discord2Config Config = new Discord2Config();

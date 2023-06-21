@@ -1,5 +1,5 @@
 ﻿/*
-Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/SuperNova)
+Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/DeadNova)
 Dual-licensed under the Educational Community License, Version 2.0 and
 the GNU General Public License, Version 3 (the "Licenses"); you may
 not use this file except in compliance with the Licenses. You may
@@ -16,7 +16,6 @@ using System;
 using System.IO;
 using System.Net;
 using System.Net.Security;
-using System.Net.Sockets;
 using System.Security.Authentication;
 
 namespace DeadNova.Network {

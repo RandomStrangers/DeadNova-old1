@@ -1,5 +1,5 @@
 /*
-    Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/SuperNova)
+    Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/DeadNova)
     
     Dual-licensed under the    Educational Community License, Version 2.0 and
     the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -44,7 +44,8 @@ namespace DeadNova {
         //True = cancel event
         //Fale = dont cacnel event
 #if DEV_BUILD_NOVA
-        public static bool Check(string cmd, string message) {
+        public static bool Check(string cmd, string message)
+        {
             if (NovaCommand != null) NovaCommand(cmd, message);
             return cancelcommand;
         }
@@ -54,7 +55,7 @@ namespace DeadNova {
             return cancelcommand;
         }
 #endif
-
+        
         [Obsolete("Use Logger.Log(LogType, String)")]
         public void Log(string message) { Logger.Log(LogType.SystemActivity, message); }
         
@@ -230,7 +231,95 @@ namespace DeadNova {
                 return stopThread;
             }
         }
-        
+        public static Thread Update(bool restart, string msg)
+        {
+            Server.shuttingDown = true;
+            lock (stopLock)
+            {
+                if (stopThread != null) return stopThread;
+                stopThread = new Thread(() => UpdateThread(restart, msg));
+                stopThread.Start();
+                return stopThread;
+            }
+        }
+
+        static void UpdateThread(bool restarting, string msg)
+        {
+            try
+            {
+                Logger.Log(LogType.SystemActivity, "Server Updating ({0})", msg);
+            }
+            catch { }
+
+            // Stop accepting new connections and disconnect existing sessions
+            try
+            {
+                if (Listener != null) Listener.Close();
+            }
+            catch (Exception ex) { Logger.LogError(ex); }
+
+            try
+            {
+                Player[] players = PlayerInfo.Online.Items;
+                foreach (Player p in players) { p.Leave("Updating Server..."); }
+            }
+            catch (Exception ex) { Logger.LogError(ex); }
+
+            byte[] kick = Packet.Kick(msg, false);
+            try
+            {
+                INetSocket[] pending = INetSocket.pending.Items;
+                foreach (INetSocket p in pending) { p.Send(kick, SendFlags.None); }
+            }
+            catch (Exception ex) { Logger.LogError(ex); }
+
+            OnShuttingDownEvent.Call(restarting, msg);
+            Plugin.UnloadAll();
+
+            try
+            {
+                string autoload = null;
+                Level[] loaded = LevelInfo.Loaded.Items;
+                foreach (Level lvl in loaded)
+                {
+                    if (!lvl.SaveChanges) continue;
+
+                    autoload = autoload + lvl.name + "=" + lvl.physics + Environment.NewLine;
+                    lvl.Save();
+                    lvl.SaveBlockDBChanges();
+                }
+
+                if (Server.SetupFinished && !Server.Config.AutoLoadMaps)
+                {
+                    File.WriteAllText("text/autoload.txt", autoload);
+                }
+            }
+            catch (Exception ex) { Logger.LogError(ex); }
+
+            try
+            {
+                Logger.Log(LogType.SystemActivity, "Server shutdown completed");
+            }
+            catch { }
+
+            try { FileLogger.Flush(null); } catch { }
+
+            if (restarting)
+            {
+                // first try to use excevp to restart in CLI mode under mono 
+                // - see detailed comment in HACK_Execvp for why this is required
+                if (HACK_TryExecvp()) HACK_Execvp();
+                Process.Start(RestartPath);
+            }
+            Environment.Exit(0);
+        }
+
+
+
+
+
+
+
         static void ShutdownThread(bool restarting, string msg) {
             try {
                 Logger.Log(LogType.SystemActivity, "Server shutting down ({0})", msg);
@@ -334,7 +423,10 @@ namespace DeadNova {
         public static void UpdateUrl(string url) {
             if (OnURLChange != null) OnURLChange(url);
         }
-
+        public static void UpdateUrl2(string url2)
+        {
+            if (OnURL2Change != null) OnURL2Change(url2);
+        }
         static void RandomMessage(SchedulerTask task) {
             if (PlayerInfo.Online.Count > 0 && announcements.Length > 0) {
                 Chat.MessageGlobal(announcements[new Random().Next(0, announcements.Length)]);

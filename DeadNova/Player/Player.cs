@@ -1,5 +1,5 @@
 ﻿/*
-Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/SuperNova)
+Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/DeadNova)
 Dual-licensed under the Educational Community License, Version 2.0 and
 the GNU General Public License, Version 3 (the "Licenses"); you may
 not use this file except in compliance with the Licenses. You may
@@ -37,16 +37,16 @@ namespace DeadNova {
 
     sealed class NovaPlayer : Player
     {
-        public NovaPlayer() : base("&7(&5N&do&5v&da&7)")
+        public NovaPlayer() : base("&7(&0Dead&5Nova&7)")
         {
             group = Group.NovaRank;
             color = "&S";
-            SuperName = "&7&5N&do&5v&da&7";
+            SuperName = "&0Dead&5Nova";
         }
 
         public override string FullName
         {
-            get { return "Nova [&a" + Server.Config.CoreState + "&S]"; }
+            get { return "DeadNova [&a" + Server.Config.CoreState + "&S]"; }
         }
 
         public override void Message(byte type, string message)
@@ -105,7 +105,8 @@ namespace DeadNova {
                 BlockBindings[b] = (BlockID)b;
             }
         }
-        
+        public static List<Player> players2 = new List<Player>();
+        public static byte number { get { return (byte)players2.Count; } }
         public override byte EntityID { get { return id; } }
         public override Level Level { get { return level; } }
         public override bool RestrictsScale { get { return true; } }
@@ -390,7 +391,6 @@ namespace DeadNova {
             }
             return true;
         }
-        
         /// <summary> Checks if player is currently unverified, and if so, sends a message informing them </summary>
         public void CheckIsUnverified() {
             if (verifiedPass) return;
@@ -399,8 +399,6 @@ namespace DeadNova {
             
             Authenticator.Current.NeedVerification(this);
         }
-        
-          
         /// <summary> Formats a player name for displaying in chat. </summary>
         public string FormatNick(string name) {
             Player target = PlayerInfo.FindExact(name);

@@ -1,5 +1,5 @@
 /*
-    Copyright 2010 MCLawl Team - Written by Valek (Modified for use with SuperNova)
+    Copyright 2010 MCLawl Team - Written by Valek (Modified for use with DeadNova)
  
    Dual-licensed under the Educational Community License, Version 2.0 and
     the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -45,7 +45,7 @@ namespace DeadNova.Commands.Moderation {
                 if (target == null) { p.Message("Possession disabled."); return;  }
                 
                 Unpossess(target);
-                p.invincible = false;
+                p.invulnerable = false;
                 Command.Find("Hide").Use(p, "", data);
                 p.Message("Stopped possessing {0}&S.", p.FormatNick(target));
             } else {
@@ -69,7 +69,7 @@ namespace DeadNova.Commands.Moderation {
                 if (!p.hidden) Command.Find("Hide").Use(p, "", data);
                 p.possess = target.name;
                 target.following = p.name;
-                if (!p.invincible) p.invincible = true;
+                if (!p.invulnerable) p.invulnerable = true;
                 
                 bool result = (skin == "#") ? target.MarkPossessed() : target.MarkPossessed(p.name);
                 if (!result) return;

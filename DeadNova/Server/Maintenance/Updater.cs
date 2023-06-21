@@ -1,5 +1,5 @@
 /*
-    Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/SuperNova)
+    Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/DeadNova)
     
     Dual-licensed under the Educational Community License, Version 2.0 and
     the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -33,13 +33,7 @@ namespace DeadNova {
         public const string UpdatesURL = "https://github.com/RandomStrangers/DeadNova/raw/master/Uploads/";
         
         const string CurrentVersionURL = BaseURL + "Uploads/current_version.txt";
-#if TEN_BIT_BLOCKS
-        const string dllURL = UpdatesURL + "DeadNova_infid.dll";
-        const string guiURL = UpdatesURL + "DeadNova.exe";
-        const string changelogURL = BaseURL + "Changelog.txt";
-        const string cliURL = UpdatesURL + "DeadNovaCLI.exe";
-
-#elif DEV_BUILD_NOVA
+#if DEV_BUILD_NOVA
         const string dllURL = UpdatesURL + "DeadNova_Core.dll";
         const string guiURL = UpdatesURL + "DeadNova_CoreGUI.exe";
         const string changelogURL = BaseURL + "Changelog.txt";
@@ -101,24 +95,23 @@ namespace DeadNova {
 
                 Player[] players = PlayerInfo.Online.Items;
                 foreach (Player pl in players) pl.SaveStats();
-                
+
                 // Move current files to previous files (by moving instead of copying, 
                 //  can overwrite original the files without breaking the server)
-                AtomicIO.TryMove("DeadNova_.dll", "prev_DeadNova_.dll");
-                AtomicIO.TryMove("DeadNova.exe", "prev_DeadNova.exe");
-                AtomicIO.TryMove("DeadNovaCLI.exe", "prev_DeadNovaCLI.exe");
+                AtomicIO.TryMove("DeadNova_.dll", "prev_SuperNova_.dll");
+                AtomicIO.TryMove("DeadNova.exe", "prev_SuperNova.exe");
+                AtomicIO.TryMove("DeadNovaCLI.exe", "prev_SuperNovaCLI.exe");
                 
                 // Move update files to current files
                 File.Move("DeadNova_.update",   "DeadNova_.dll");
                 File.Move("DeadNova.update",    "DeadNova.exe");
-                File.Move("DeadNovaCLI.update", "DeadNovaCLI.exe");                             
-
-                Server.Stop(true, "Updating server.");
+                File.Move("DeadNovaCLI.update", "DeadNovaCLI.exe");
+                Server.Update(true, "Updating server.");
             } catch (Exception ex) {
                 Logger.LogError("Error performing update", ex);
             }
         }
-        
+
         static void DeleteFiles(params string[] paths) {
             foreach (string path in paths) { AtomicIO.TryDelete(path); }
         }

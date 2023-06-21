@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2015 SuperNova
+    Copyright 2015 DeadNova
         
     Dual-licensed under the Educational Community License, Version 2.0 and
     the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -45,6 +45,7 @@ namespace DeadNova {
         public const string ServerPropsFile = "properties/server.properties";
         public const string RankPropsFile = "properties/ranks.properties";
         public const string AuthServicesFile = "properties/authservices.properties";
+        public const string AuthServicesFile2 = "properties/authservices2.properties";
         public const string CPEDisabledFile = "properties/cpe.properties";
         
         public const string ImportsDir = "extra/import/";

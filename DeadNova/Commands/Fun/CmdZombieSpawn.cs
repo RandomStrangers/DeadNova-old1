@@ -18,7 +18,7 @@
 using System;
 using System.Threading;
 
-/*namespace SuperNova
+/*namespace DeadNova
 {
     public class CmdZombieSpawn : Command
     {
