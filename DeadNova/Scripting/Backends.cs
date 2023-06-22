@@ -104,7 +104,7 @@ namespace DeadNova
 \tpublic class {0} : Plugin
 \t{{
 \t\tpublic override string name {{ get {{ return ""{0}""; }} }}
-\t\tpublic override string SuperNova_Version {{ get {{ return ""{2}""; }} }}
+\t\tpublic override string DeadNova_Version {{ get {{ return ""{2}""; }} }}
 \t\tpublic override string welcome {{ get {{ return ""Loaded Message!""; }} }}
 \t\tpublic override string creator {{ get {{ return ""{1}""; }} }}
 
@@ -229,7 +229,7 @@ Namespace DeadNova
 \t\t\t\tReturn ""{0}""
 \t\t\tEnd Get
 \t\t End Property
-\t\tPublic Overrides ReadOnly Property SuperNova_Version() As String
+\t\tPublic Overrides ReadOnly Property DeadNova_Version() As String
 \t\t\tGet
 \t\t\t\tReturn ""{2}""
 \t\t\tEnd Get
