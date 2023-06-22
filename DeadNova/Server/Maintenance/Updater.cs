@@ -26,7 +26,8 @@ using DeadNova.Tasks;
 namespace DeadNova {
     /// <summary> Checks for and applies software updates. </summary>
     public static class Updater {
-        
+
+        public static string MCGalaxyWikiURL = "https://github.com/UnknownShadow200/MCGalaxy";
         public static string SourceURL = "https://github.com/RandomStrangers/DeadNova/";
         public const string BaseURL    = "https://github.com/RandomStrangers/DeadNova/blob/master/";
         public const string UploadsURL = "https://github.com/RandomStrangers/DeadNova/tree/master/Uploads";
@@ -98,9 +99,9 @@ namespace DeadNova {
 
                 // Move current files to previous files (by moving instead of copying, 
                 //  can overwrite original the files without breaking the server)
-                AtomicIO.TryMove("DeadNova_.dll", "prev_SuperNova_.dll");
-                AtomicIO.TryMove("DeadNova.exe", "prev_SuperNova.exe");
-                AtomicIO.TryMove("DeadNovaCLI.exe", "prev_SuperNovaCLI.exe");
+                AtomicIO.TryMove("DeadNova_.dll", "prev_DeadNova_.dll");
+                AtomicIO.TryMove("DeadNova.exe", "prev_DeadNova.exe");
+                AtomicIO.TryMove("DeadNovaCLI.exe", "prev_DeadNovaCLI.exe");
                 
                 // Move update files to current files
                 File.Move("DeadNova_.update",   "DeadNova_.dll");

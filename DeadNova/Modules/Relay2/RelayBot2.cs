@@ -298,7 +298,7 @@ namespace DeadNova.Modules.Relay2
         }
 
         public virtual string UnescapeFull(Player p) {
-            return Server.Config.IRCShowPlayerTitles1 ? p.FullName : p.group.Prefix + p.ColoredName;
+            return Server.Config.IRCShowPlayerTitles2 ? p.FullName : p.group.Prefix + p.ColoredName;
         }
 
         public virtual string UnescapeNick(Player p) { return p.ColoredName; }
@@ -313,7 +313,7 @@ namespace DeadNova.Modules.Relay2
                 SendPublicMessage(msg); return;
             }
             
-            fakeStaff.group = Group.Find(Server.Config.IRCControllerRank);
+            fakeStaff.group = Group.Find(Server.Config.IRCControllerRank2);
             if (fakeStaff.group == null) fakeStaff.group = Group.NobodyRank;
             
             if (scopeFilter(fakeStaff, arg) && (filter == null || filter(fakeStaff, arg))) {
@@ -404,7 +404,7 @@ namespace DeadNova.Modules.Relay2
             // Only reply to .who on channels configured to listen on
             if ((chat || opchat) && HandleListPlayers(user, channel, rawCmd, opchat)) return;
             
-            if (rawCmd.CaselessEq(Server.Config.IRCCommandPrefix)) {
+            if (rawCmd.CaselessEq(Server.Config.IRCCommandPrefix2)) {
                 if (!HandleCommand(user, channel, message, parts)) return;
             }
 

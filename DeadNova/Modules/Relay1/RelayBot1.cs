@@ -313,7 +313,7 @@ namespace DeadNova.Modules.Relay1
                 SendPublicMessage(msg); return;
             }
             
-            fakeStaff.group = Group.Find(Server.Config.IRCControllerRank);
+            fakeStaff.group = Group.Find(Server.Config.IRCControllerRank1);
             if (fakeStaff.group == null) fakeStaff.group = Group.NobodyRank;
             
             if (scopeFilter(fakeStaff, arg) && (filter == null || filter(fakeStaff, arg))) {
@@ -404,7 +404,7 @@ namespace DeadNova.Modules.Relay1
             // Only reply to .who on channels configured to listen on
             if ((chat || opchat) && HandleListPlayers(user, channel, rawCmd, opchat)) return;
             
-            if (rawCmd.CaselessEq(Server.Config.IRCCommandPrefix)) {
+            if (rawCmd.CaselessEq(Server.Config.IRCCommandPrefix1)) {
                 if (!HandleCommand(user, channel, message, parts)) return;
             }
 

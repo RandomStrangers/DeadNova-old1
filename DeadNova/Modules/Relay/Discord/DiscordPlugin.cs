@@ -74,7 +74,7 @@ namespace DeadNova.Modules.Relay.Discord
             
             using (StreamWriter w = new StreamWriter(PROPS_PATH)) {
                 w.WriteLine("# Discord relay bot configuration");
-                w.WriteLine("# See " + Updater.SourceURL + "/wiki/Discord-relay-bot/");
+                w.WriteLine("# See " + Updater.MCGalaxyWikiURL + "/wiki/Discord-relay-bot/");
                 w.WriteLine();
                 ConfigElement.SerialiseElements(cfg, w, this);
             }
@@ -87,7 +87,7 @@ namespace DeadNova.Modules.Relay.Discord
     public sealed class DiscordPlugin : Plugin 
     {
         public override string creator { get { return Server.SoftwareName + " team"; } }
-        public override string SuperNova_Version { get { return Server.Version; } }
+        public override string DeadNova_Version { get { return Server.Version; } }
         public override string name { get { return "DiscordRelay"; } }
         
         public static DiscordConfig Config = new DiscordConfig();
